@@ -67,12 +67,13 @@
           //console.log(criteria);
           //criteria: '(Project == "239 Waverly Avenue Townhouse")',
           var config = {
-            appName: 'cooperbuild20',
+            appName: 'gantt-chart-test',
             reportName: 'All_Tasks',
             criteria,
             page: '1',
             pageSize: '200'
           };
+          console.log(config);
           var delClassArr = [];
           ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
