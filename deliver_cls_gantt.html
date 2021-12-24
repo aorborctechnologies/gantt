@@ -78,12 +78,12 @@
         var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
             console.log(value);
-          
+            console.log(response);
               
            console.log(recordArr[0].Task_Name);
            return recordArr;
             });
-            console.log(value);
+//             console.log(value);
 
           const printAddress = async () => {
             const a = await value;
