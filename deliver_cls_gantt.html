@@ -74,6 +74,7 @@
             page: '1',
             pageSize: '200'
           };
+          console.log(config);
           var delClassArr = [];
         var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
