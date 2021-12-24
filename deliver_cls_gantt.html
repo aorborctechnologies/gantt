@@ -77,17 +77,19 @@
           var delClassArr = [];
         var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
-            console.log(value);
-            console.log(response.data);
+//             console.log(value);
+            for(var index in recordArr){
+                  console.log(recordArr[index]);
+                }
               
-           console.log(recordArr[0].Task_Name);
+//            console.log(recordArr[0].Task_Name);
            return recordArr;
             });
 //             console.log(value);
 
           const printAddress = async () => {
             const a = await value;
-            console.log(a);
+//             console.log(a);
           
         //  a.forEach(element => {
         //      console.log(element.Task_Name)
@@ -106,7 +108,7 @@
               thisArray[6] = null;
               chatArray.push(thisArray);
             }
-         console.log(chatArray);
+//          console.log(chatArray);
          data.addRows(chatArray);
           
          
