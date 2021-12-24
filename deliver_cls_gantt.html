@@ -69,7 +69,7 @@
           var config = {
             appName: 'cooperbuild20',
             reportName: 'All_Deliverable_Class_Task_Report',
-            criteria : '(project_id == ' + project_id + ')',
+            criteria : criteria,
             page: '1',
             pageSize: '200'
           };
@@ -77,8 +77,8 @@
         var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
             console.log(value);
-            for(var index in recordArr){
-                  console.log(recordArr[index]);
+            for(var x in recordArr){
+                  console.log(recordArr[x]);
                 }
               
 //            console.log(recordArr[0].Task_Name);
