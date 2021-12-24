@@ -78,7 +78,7 @@
         var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
             console.log(value);
-            console.log(response);
+            console.log(response.data);
               
            console.log(recordArr[0].Task_Name);
            return recordArr;
