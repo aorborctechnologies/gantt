@@ -63,7 +63,8 @@
           //Code goes here
           var queryParams = ZOHO.CREATOR.UTIL.getQueryParams();
           var project_id = queryParams.project_id;
-          var criteria = '(project_id == ' + project_id + ')';
+//           var criteria = '(project_id == ' + project_id + ')';
+          var criteria = 'project_id == ' + project_id;
           console.log(criteria);
           //criteria: '(Project == "239 Waverly Avenue Townhouse")',
           var config = {
