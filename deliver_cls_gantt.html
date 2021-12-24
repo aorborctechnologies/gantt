@@ -64,13 +64,12 @@
           var queryParams = ZOHO.CREATOR.UTIL.getQueryParams();
           var project_id = queryParams.project_id;
           var criteria = '(project_id == ' + project_id + ')';
-//           var criteria = 'project_id == ' + project_id;
-          console.log(criteria);
+//        console.log(criteria);
           //criteria: '(Project == "239 Waverly Avenue Townhouse")',
           var config = {
             appName: 'cooperbuild20',
             reportName: 'All_Deliverable_Class_Task_Report',
-            project_id: project_id,
+            criteria : '(project_id == ' + project_id + ')',
             page: '1',
             pageSize: '200'
           };
