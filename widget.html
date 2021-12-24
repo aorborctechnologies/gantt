@@ -67,50 +67,90 @@
           //console.log(criteria);
           //criteria: '(Project == "239 Waverly Avenue Townhouse")',
           var config = {
-            appName: 'gantt-chart-test',
+            appName: 'cooperbuild20',
             reportName: 'All_Tasks',
             criteria,
             page: '1',
             pageSize: '200'
           };
           var delClassArr = [];
-        var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
+          ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
             console.log(recordArr);
-          
-              
-           console.log(recordArr[0].Task_Name);
-           return recordArr;
-            });
-            console.log(value);
-
-          const printAddress = async () => {
-            const a = await value;
-            console.log(a);
-          
-        //  a.forEach(element => {
-        //      console.log(element.Task_Name)
-        //     })
-          //  var firstRec1 = delClassArr[0].Title;
-          //  console.log(firstRec1)
-          chatArray = [];
-          for (var index in a) {
-              var thisArray =[];
-              thisArray[0] = a[index].Task_Id;
-              thisArray[1] = a[index].Task_Name;
-              thisArray[2] = new Date(a[index].Start_Date);
-              thisArray[3] = new Date(a[index].End_Date);
-              thisArray[4] = parseInt(a[index].Duration);
-              thisArray[5] = parseInt(a[index].Percent_Complete);
-              thisArray[6] = null;
-              chatArray.push(thisArray);
+            for (var index in recordArr) {
+              var thisDelClass =
+                recordArr[index].Deliverable_Class.display_value;
+              if (!delClassArr.includes(thisDelClass)) {
+                delClassArr.push(thisDelClass);
+              }
             }
-         console.log(chatArray);
-         data.addRows(chatArray);
-          
-         
+            console.log(delClassArr);
+          });
+          // var firstRec = delClassArr[0];
+          // console.log(firstRec);
+          // chatArray = [];
+          // for (var index in respArr) {
+          //     var thisArray =[];
+          //     thisArray[0] = recordArr[index].ID;
+          //     thisArray[1] = recordArr[index].Title;
+          //     thisArray[2] = recordArr[index].Start_Date;
+          //     thisArray[3] = recordArr[index].End_Date;
+          //     thisArray[4] = null;
+          //     thisArray[5] = recordArr[index].Percent;
+          //     thisArray[6] = null;
+          //     chatArray.push(thisArray);
+          //   }
+          // data.addRows(chatArray);
+          data.addRows([
+            [
+              'Research',
+              'Research',
+              new Date(2015, 0, 1),
+              new Date(2015, 0, 5),
+              null,
+              100,
+              null
+            ],
+            [
+              'Write',
+              'Write Paper',
+              null,
+              new Date(2015, 0, 9),
+              daysToMilliseconds(3),
+              25,
+              'Research,Outline'
+            ],
+            [
+              'Cite',
+              'Create bibliography',
+              null,
+              new Date(2015, 0, 7),
+              daysToMilliseconds(1),
+              20,
+              'Research'
+            ],
+            [
+              'Complete',
+              'Hand in paper',
+              null,
+              new Date(2015, 0, 10),
+              daysToMilliseconds(1),
+              0,
+              'Cite,Write'
+            ],
+            [
+              'Outline',
+              'Outline paper',
+              null,
+              new Date(2015, 0, 6),
+              daysToMilliseconds(1),
+              100,
+              'Research'
+            ]
+          ]);
+
           var options = {
-            height: 800
+            height: 275
           };
 
           var chart = new google.visualization.Gantt(
@@ -118,8 +158,6 @@
           );
 
           chart.draw(data, options);
-          };
-       printAddress();
         }
       });
     </script>
