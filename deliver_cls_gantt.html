@@ -63,8 +63,8 @@
           //Code goes here
           var queryParams = ZOHO.CREATOR.UTIL.getQueryParams();
           var project_id = queryParams.project_id;
-//           var criteria = '(project_id == ' + project_id + ')';
-          var criteria = 'project_id == ' + project_id;
+          var criteria = '(project_id == ' + project_id + ')';
+//           var criteria = 'project_id == ' + project_id;
           console.log(criteria);
           //criteria: '(Project == "239 Waverly Avenue Townhouse")',
           var config = {
@@ -74,11 +74,10 @@
             page: '1',
             pageSize: '200'
           };
-          console.log(config);
           var delClassArr = [];
         var value = ZOHO.CREATOR.API.getAllRecords(config).then(function(response) {
             var recordArr = response.data;
-            console.log(recordArr);
+            console.log(value);
           
               
            console.log(recordArr[0].Task_Name);
